@@ -1,12 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../blocs/sign_up/sign_up_bloc.dart';
+import '../blocs/sign_in/sign_in_bloc.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class SignInScreen extends StatelessWidget {
+  const SignInScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +17,7 @@ class SignUpScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Title
-              Text("Sign Up", style: Theme.of(context).textTheme.headlineLarge),
+              Text("Sign In", style: Theme.of(context).textTheme.headlineLarge),
               const SizedBox(height: 24),
 
               // SignUp Form
@@ -31,7 +29,7 @@ class SignUpScreen extends StatelessWidget {
                         labelText: "Email",
                         icon: Icon(Icons.email),
                       ),
-                      onChanged: (value) => context.read<SignUpBloc>().add(SignUpEvent.emailChanged(value)),
+                      onChanged: (value) => context.read<SignInBloc>().add(SignInEvent.emailChanged(value)),
                     ),
                     const SizedBox(height: 24),
                     TextFormField(
@@ -39,7 +37,7 @@ class SignUpScreen extends StatelessWidget {
                         labelText: "Password",
                         icon: Icon(Icons.password),
                       ),
-                      onChanged: (value) => context.read<SignUpBloc>().add(SignUpEvent.passwordChanged(value)),
+                      onChanged: (value) => context.read<SignInBloc>().add(SignInEvent.passwordChanged(value)),
                     ),
                     const SizedBox(height: 24),
 
@@ -47,9 +45,8 @@ class SignUpScreen extends StatelessWidget {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () =>
-                            context.read<SignUpBloc>().add(SignUpEvent.registerWithEmailAndPasswordPressed()),
-                        child: const Text("Sign Up"),
+                        onPressed: ()=> context.read<SignInBloc>().add(const SignInEvent.signInWithEmailAndPasswordPressed()),
+                        child: const Text("Sign In"),
                       ),
                     ),
                   ],
