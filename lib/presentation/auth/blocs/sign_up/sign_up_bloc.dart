@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../domain/auth/repositories/i_auth_facade.dart';
+import '../../../../domain/auth/repositories/i_auth_facade.dart';
 
 part 'sign_up_event.dart';
 

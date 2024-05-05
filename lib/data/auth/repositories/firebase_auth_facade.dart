@@ -16,11 +16,11 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<bool> isSignedIn() {
+  bool isSignedIn() {
     if (_firebaseAuth.currentUser == null) {
-      return Future.value(false);
+      return false;
     } else {
-      return Future.value(true);
+      return true;
     }
   }
 
