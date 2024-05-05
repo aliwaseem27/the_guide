@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../blocs/sign_in/sign_in_bloc.dart';
 
+@RoutePage()
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
 
