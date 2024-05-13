@@ -47,8 +47,11 @@ class FirebaseAuthFacade implements IAuthFacade {
       );
     } on FirebaseAuthException catch (e) {
       if (kDebugMode) {
+        print("You have encountered the following exception: $e");
         print(e.code);
       }
+    } catch (e){
+      print("You have encountered the following exception: $e");
     }
   }
 

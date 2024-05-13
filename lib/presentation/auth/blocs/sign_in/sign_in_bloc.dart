@@ -3,16 +3,16 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../domain/auth/repositories/i_auth_facade.dart';
 
-part 'sign_up_event.dart';
+part 'sign_in_event.dart';
 
-part 'sign_up_state.dart';
+part 'sign_in_state.dart';
 
-part 'sign_up_bloc.freezed.dart';
+part 'sign_in_bloc.freezed.dart';
 
-class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
+class SignInBloc extends Bloc<SignInEvent, SignInState> {
   final IAuthFacade _authFacade;
 
-  SignUpBloc(this._authFacade) : super(SignUpState.initial()) {
+  SignInBloc(this._authFacade) : super(SignInState.initial()) {
     on<_EmailChanged>((event, emit) {
       emit(state.copyWith(
         email: event.emailStr,
@@ -20,11 +20,11 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     });
     on<_PasswordChanged>((event, emit) {
       emit(state.copyWith(
-        password: event.passwordStr,
+        email: event.passwordStr,
       ));
     });
-    on<_RegisterWithEmailAndPasswordPressed>((event, emit) {
-      _authFacade.registerInWithEmailAndPassword(
+    on<_SignInWithEmailAndPasswordPressed>((event, emit) {
+      _authFacade.signInWithEmailAndPassword(
         email: state.email,
         password: state.password,
       );
