@@ -53,7 +53,10 @@ class SignInForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => context.read<SignInBloc>().add(const SignInEvent.signInWithEmailAndPasswordPressed()),
+                onPressed: () {
+                  context.read<SignInBloc>().add(const SignInEvent.signInWithEmailAndPasswordPressed());
+                  context.read<AuthCheckBloc>().add(const AuthCheckEvent.authCheckRequested());
+                },
                 child: const Text("Sign In"),
               ),
             ),

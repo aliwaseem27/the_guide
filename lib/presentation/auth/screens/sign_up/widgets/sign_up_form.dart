@@ -53,8 +53,10 @@ class SignUpForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () =>
-                    context.read<SignUpBloc>().add(const SignUpEvent.registerWithEmailAndPasswordPressed()),
+                onPressed: () {
+                  context.read<SignUpBloc>().add(const SignUpEvent.registerWithEmailAndPasswordPressed());
+                  context.read<AuthCheckBloc>().add(const AuthCheckEvent.authCheckRequested());
+                },
                 child: const Text("Sign Up"),
               ),
             ),
