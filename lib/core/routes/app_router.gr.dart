@@ -15,10 +15,34 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    CalenderRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CalenderScreen(),
+      );
+    },
     MainMenuRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const MainMenuScreen(),
+      );
+    },
+    MapRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MapScreen(),
+      );
+    },
+    SearchRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SearchScreen(),
+      );
+    },
+    SettingsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SettingsScreen(),
       );
     },
     SignInRoute.name: (routeData) {
@@ -47,6 +71,20 @@ abstract class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
+/// [CalenderScreen]
+class CalenderRoute extends PageRouteInfo<void> {
+  const CalenderRoute({List<PageRouteInfo>? children})
+      : super(
+          CalenderRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CalenderRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [MainMenuScreen]
 class MainMenuRoute extends PageRouteInfo<void> {
   const MainMenuRoute({List<PageRouteInfo>? children})
@@ -56,6 +94,48 @@ class MainMenuRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'MainMenuRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MapScreen]
+class MapRoute extends PageRouteInfo<void> {
+  const MapRoute({List<PageRouteInfo>? children})
+      : super(
+          MapRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MapRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SearchScreen]
+class SearchRoute extends PageRouteInfo<void> {
+  const SearchRoute({List<PageRouteInfo>? children})
+      : super(
+          SearchRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SearchRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SettingsScreen]
+class SettingsRoute extends PageRouteInfo<void> {
+  const SettingsRoute({List<PageRouteInfo>? children})
+      : super(
+          SettingsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SettingsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

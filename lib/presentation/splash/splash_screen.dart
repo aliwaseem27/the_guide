@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:the_guide/core/routes/app_router.dart';
-import 'package:the_guide/presentation/customers/main_menu/main_menu.dart';
 
 import '../auth/blocs/auth_check/auth_check_bloc.dart';
 
