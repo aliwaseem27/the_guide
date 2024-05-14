@@ -1,14 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:injectable/injectable.dart';
 import 'package:the_guide/data/auth/repositories/firebase_user_mapper.dart';
 import 'package:the_guide/domain/auth/entities/current_user.dart';
 
 import '../../../domain/auth/repositories/i_auth_facade.dart';
 
+@LazySingleton(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
-  final _firebaseAuth = FirebaseAuth.instance;
-  final _googleSignIn = GoogleSignIn();
+  final FirebaseAuth _firebaseAuth;
+  final GoogleSignIn _googleSignIn;
+
+  FirebaseAuthFacade(this._firebaseAuth, this._googleSignIn);
 
   @override
   Future<CurrentUser> getSignedInUser() async {
@@ -50,7 +54,7 @@ class FirebaseAuthFacade implements IAuthFacade {
         print("You have encountered the following exception: $e");
         print(e.code);
       }
-    } catch (e){
+    } catch (e) {
       print("You have encountered the following exception: $e");
     }
   }

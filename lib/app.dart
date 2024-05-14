@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:the_guide/core/routes/app_router.dart';
 import 'package:the_guide/domain/auth/entities/current_user.dart';
+import 'package:the_guide/injection.dart';
 import 'package:the_guide/presentation/auth/blocs/auth_check/auth_check_bloc.dart';
 import 'package:the_guide/presentation/auth/blocs/sign_in/sign_in_bloc.dart';
 import 'package:the_guide/presentation/auth/screens/sign_up/sign_up_screen.dart';
@@ -17,11 +18,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final FirebaseAuthFacade _authFacade = FirebaseAuthFacade();
     return MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) => AuthCheckBloc(_authFacade)..add(const AuthCheckEvent.authCheckRequested()),
+            create: (context) => getIt<AuthCheckBloc>()..add(const AuthCheckEvent.authCheckRequested()),
           ),
         ],
         child: MaterialApp.router(

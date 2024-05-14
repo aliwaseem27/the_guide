@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:the_guide/injection.dart';
 
 import '../../../../data/auth/repositories/firebase_auth_facade.dart';
 import '../../blocs/sign_up/sign_up_bloc.dart';
@@ -12,12 +13,10 @@ import 'widgets/sign_up_form.dart';
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
 
-  final FirebaseAuthFacade _authFacade = FirebaseAuthFacade();
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider<SignUpBloc>(
-      create: (context) => SignUpBloc(_authFacade),
+      create: (context) => getIt<SignUpBloc>(),
       child: Scaffold(
         appBar: AppBar(),
         body: SingleChildScrollView(

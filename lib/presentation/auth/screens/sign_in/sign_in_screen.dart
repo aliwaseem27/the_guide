@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:the_guide/injection.dart';
 
 import '../../../../core/routes/app_router.dart';
 import '../../../../data/auth/repositories/firebase_auth_facade.dart';
@@ -11,12 +12,10 @@ import 'widgets/sign_in_form.dart';
 class SignInScreen extends StatelessWidget {
   SignInScreen({super.key});
 
-  final FirebaseAuthFacade _authFacade = FirebaseAuthFacade();
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider<SignInBloc>(
-      create: (context) => SignInBloc(_authFacade),
+      create: (context) => getIt<SignInBloc>(),
       child: Scaffold(
         appBar: AppBar(),
         body: SingleChildScrollView(
