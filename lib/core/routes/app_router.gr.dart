@@ -15,10 +15,28 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AddCustomerRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AddCustomerScreen(),
+      );
+    },
     CalenderRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const CalenderScreen(),
+      );
+    },
+    CustomerDetailsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CustomerDetailsScreen(),
+      );
+    },
+    CustomerListRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const CustomerListScreen(),
       );
     },
     MainMenuRoute.name: (routeData) {
@@ -71,6 +89,20 @@ abstract class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
+/// [AddCustomerScreen]
+class AddCustomerRoute extends PageRouteInfo<void> {
+  const AddCustomerRoute({List<PageRouteInfo>? children})
+      : super(
+          AddCustomerRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AddCustomerRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [CalenderScreen]
 class CalenderRoute extends PageRouteInfo<void> {
   const CalenderRoute({List<PageRouteInfo>? children})
@@ -80,6 +112,34 @@ class CalenderRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'CalenderRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CustomerDetailsScreen]
+class CustomerDetailsRoute extends PageRouteInfo<void> {
+  const CustomerDetailsRoute({List<PageRouteInfo>? children})
+      : super(
+          CustomerDetailsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CustomerDetailsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [CustomerListScreen]
+class CustomerListRoute extends PageRouteInfo<void> {
+  const CustomerListRoute({List<PageRouteInfo>? children})
+      : super(
+          CustomerListRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'CustomerListRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

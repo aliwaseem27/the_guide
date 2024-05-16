@@ -4,6 +4,9 @@ import 'package:flutter/foundation.dart';
 import '../../presentation/auth/screens/sign_in/sign_in_screen.dart';
 import '../../presentation/auth/screens/sign_up/sign_up_screen.dart';
 import '../../presentation/calender/screens/calender_screen.dart';
+import '../../presentation/customers/screens/add_customer/add_customer_screen.dart';
+import '../../presentation/customers/screens/customer_details/customer_details_screen.dart';
+import '../../presentation/customers/screens/customer_list/customer_list_screen.dart';
 import '../../presentation/customers/screens/main_menu/main_menu.dart';
 import '../../presentation/map/screens/map_screen.dart';
 import '../../presentation/profile/screens/settings_screen.dart';
@@ -28,5 +31,8 @@ class AppRouter extends _$AppRouter {
             AutoRoute(page: SettingsRoute.page),
           ],
         ),
+        AutoRoute(page: CustomerDetailsRoute.page),
+        AutoRoute(page: CustomerListRoute.page),
+        AutoRoute(page: AddCustomerRoute.page),
       ];
 }
