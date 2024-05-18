@@ -4,6 +4,10 @@ abstract class Failure {
   const Failure(this.message);
 }
 
+class AuthFailure extends Failure {
+  const AuthFailure({required String message}) : super(message);
+}
+
 class ServerFailure extends Failure {
   const ServerFailure({required String message}) : super(message);
 }
