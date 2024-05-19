@@ -18,9 +18,9 @@ import 'package:the_guide/data/auth/repositories/firebase_injectable_module.dart
     as _i10;
 import 'package:the_guide/domain/auth/repositories/i_auth_facade.dart' as _i5;
 import 'package:the_guide/presentation/auth/blocs/auth_check/auth_check_bloc.dart'
-    as _i8;
-import 'package:the_guide/presentation/auth/blocs/sign_in/sign_in_bloc.dart'
     as _i7;
+import 'package:the_guide/presentation/auth/blocs/sign_in/sign_in_bloc.dart'
+    as _i8;
 import 'package:the_guide/presentation/auth/blocs/sign_up/sign_up_bloc.dart'
     as _i9;
 
@@ -44,9 +44,9 @@ extension GetItInjectableX on _i1.GetIt {
           gh<_i4.FirebaseAuth>(),
           gh<_i3.GoogleSignIn>(),
         ));
-    gh.factory<_i7.SignInBloc>(() => _i7.SignInBloc(gh<_i5.IAuthFacade>()));
-    gh.factory<_i8.AuthCheckBloc>(
-        () => _i8.AuthCheckBloc(gh<_i5.IAuthFacade>()));
+    gh.factory<_i7.AuthCheckBloc>(
+        () => _i7.AuthCheckBloc(gh<_i5.IAuthFacade>()));
+    gh.factory<_i8.SignInBloc>(() => _i8.SignInBloc(gh<_i5.IAuthFacade>()));
     gh.factory<_i9.SignUpBloc>(() => _i9.SignUpBloc(gh<_i5.IAuthFacade>()));
     return this;
   }

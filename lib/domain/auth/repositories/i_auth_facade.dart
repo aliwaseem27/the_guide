@@ -1,3 +1,6 @@
+import 'package:dartz/dartz.dart';
+import 'package:the_guide/core/app_core.dart';
+
 import '../entities/current_user.dart';
 
 abstract class IAuthFacade {
@@ -5,7 +8,7 @@ abstract class IAuthFacade {
 
   bool isSignedIn();
 
-  Future<void> signInWithEmailAndPassword({
+  Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword({
     required String email,
     required String password,
   });

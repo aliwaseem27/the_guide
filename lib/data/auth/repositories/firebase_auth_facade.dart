@@ -1,7 +1,9 @@
+import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
+import 'package:the_guide/core/app_core.dart';
 import 'package:the_guide/data/auth/repositories/firebase_user_mapper.dart';
 import 'package:the_guide/domain/auth/entities/current_user.dart';
 
@@ -43,19 +45,16 @@ class FirebaseAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<void> signInWithEmailAndPassword({required String email, required String password}) async {
+  Future<Either<AuthFailure, Unit>> signInWithEmailAndPassword(
+      {required String email, required String password}) async {
     try {
       final userCredential = _firebaseAuth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
-    } on FirebaseAuthException catch (e) {
-      if (kDebugMode) {
-        print("You have encountered the following exception: $e");
-        print(e.code);
-      }
-    } catch (e) {
-      print("You have encountered the following exception: $e");
+      return right(unit);
+    } on AppFirebaseAuthException catch (e) {
+      return left(AuthFailure(message: e.message));
     }
   }
 
