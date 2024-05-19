@@ -27,8 +27,6 @@ mixin _$Customer {
   String get notes => throw _privateConstructorUsedError;
   DateTime get dateAdded => throw _privateConstructorUsedError;
   List<String> get tags => throw _privateConstructorUsedError;
-  LocationCoordinates get locationCoordinates =>
-      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,10 +46,7 @@ abstract class $CustomerCopyWith<$Res> {
       String email,
       String notes,
       DateTime dateAdded,
-      List<String> tags,
-      LocationCoordinates locationCoordinates});
-
-  $LocationCoordinatesCopyWith<$Res> get locationCoordinates;
+      List<String> tags});
 }
 
 /// @nodoc
@@ -74,7 +69,6 @@ class _$CustomerCopyWithImpl<$Res, $Val extends Customer>
     Object? notes = null,
     Object? dateAdded = null,
     Object? tags = null,
-    Object? locationCoordinates = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -105,20 +99,7 @@ class _$CustomerCopyWithImpl<$Res, $Val extends Customer>
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      locationCoordinates: null == locationCoordinates
-          ? _value.locationCoordinates
-          : locationCoordinates // ignore: cast_nullable_to_non_nullable
-              as LocationCoordinates,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $LocationCoordinatesCopyWith<$Res> get locationCoordinates {
-    return $LocationCoordinatesCopyWith<$Res>(_value.locationCoordinates,
-        (value) {
-      return _then(_value.copyWith(locationCoordinates: value) as $Val);
-    });
   }
 }
 
@@ -137,11 +118,7 @@ abstract class _$$CustomerImplCopyWith<$Res>
       String email,
       String notes,
       DateTime dateAdded,
-      List<String> tags,
-      LocationCoordinates locationCoordinates});
-
-  @override
-  $LocationCoordinatesCopyWith<$Res> get locationCoordinates;
+      List<String> tags});
 }
 
 /// @nodoc
@@ -162,7 +139,6 @@ class __$$CustomerImplCopyWithImpl<$Res>
     Object? notes = null,
     Object? dateAdded = null,
     Object? tags = null,
-    Object? locationCoordinates = null,
   }) {
     return _then(_$CustomerImpl(
       id: null == id
@@ -193,10 +169,6 @@ class __$$CustomerImplCopyWithImpl<$Res>
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      locationCoordinates: null == locationCoordinates
-          ? _value.locationCoordinates
-          : locationCoordinates // ignore: cast_nullable_to_non_nullable
-              as LocationCoordinates,
     ));
   }
 }
@@ -211,8 +183,7 @@ class _$CustomerImpl implements _Customer {
       required this.email,
       required this.notes,
       required this.dateAdded,
-      required final List<String> tags,
-      required this.locationCoordinates})
+      required final List<String> tags})
       : _tags = tags;
 
   factory _$CustomerImpl.fromJson(Map<String, dynamic> json) =>
@@ -239,11 +210,8 @@ class _$CustomerImpl implements _Customer {
   }
 
   @override
-  final LocationCoordinates locationCoordinates;
-
-  @override
   String toString() {
-    return 'Customer(id: $id, name: $name, phoneNumber: $phoneNumber, email: $email, notes: $notes, dateAdded: $dateAdded, tags: $tags, locationCoordinates: $locationCoordinates)';
+    return 'Customer(id: $id, name: $name, phoneNumber: $phoneNumber, email: $email, notes: $notes, dateAdded: $dateAdded, tags: $tags)';
   }
 
   @override
@@ -259,23 +227,13 @@ class _$CustomerImpl implements _Customer {
             (identical(other.notes, notes) || other.notes == notes) &&
             (identical(other.dateAdded, dateAdded) ||
                 other.dateAdded == dateAdded) &&
-            const DeepCollectionEquality().equals(other._tags, _tags) &&
-            (identical(other.locationCoordinates, locationCoordinates) ||
-                other.locationCoordinates == locationCoordinates));
+            const DeepCollectionEquality().equals(other._tags, _tags));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      name,
-      phoneNumber,
-      email,
-      notes,
-      dateAdded,
-      const DeepCollectionEquality().hash(_tags),
-      locationCoordinates);
+  int get hashCode => Object.hash(runtimeType, id, name, phoneNumber, email,
+      notes, dateAdded, const DeepCollectionEquality().hash(_tags));
 
   @JsonKey(ignore: true)
   @override
@@ -299,8 +257,7 @@ abstract class _Customer implements Customer {
       required final String email,
       required final String notes,
       required final DateTime dateAdded,
-      required final List<String> tags,
-      required final LocationCoordinates locationCoordinates}) = _$CustomerImpl;
+      required final List<String> tags}) = _$CustomerImpl;
 
   factory _Customer.fromJson(Map<String, dynamic> json) =
       _$CustomerImpl.fromJson;
@@ -319,8 +276,6 @@ abstract class _Customer implements Customer {
   DateTime get dateAdded;
   @override
   List<String> get tags;
-  @override
-  LocationCoordinates get locationCoordinates;
   @override
   @JsonKey(ignore: true)
   _$$CustomerImplCopyWith<_$CustomerImpl> get copyWith =>

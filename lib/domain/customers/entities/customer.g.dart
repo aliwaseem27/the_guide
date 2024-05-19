@@ -15,8 +15,6 @@ _$CustomerImpl _$$CustomerImplFromJson(Map<String, dynamic> json) =>
       notes: json['notes'] as String,
       dateAdded: DateTime.parse(json['dateAdded'] as String),
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
-      locationCoordinates: LocationCoordinates.fromJson(
-          json['locationCoordinates'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$CustomerImplToJson(_$CustomerImpl instance) =>
@@ -28,5 +26,4 @@ Map<String, dynamic> _$$CustomerImplToJson(_$CustomerImpl instance) =>
       'notes': instance.notes,
       'dateAdded': instance.dateAdded.toIso8601String(),
       'tags': instance.tags,
-      'locationCoordinates': instance.locationCoordinates,
     };

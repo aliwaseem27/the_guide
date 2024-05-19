@@ -8,6 +8,10 @@ class AuthFailure extends Failure {
   const AuthFailure({required String message}) : super(message);
 }
 
+class FirestoreFailure extends Failure {
+  const FirestoreFailure({required String message}) : super(message);
+}
+
 class ServerFailure extends Failure {
   const ServerFailure({required String message}) : super(message);
 }

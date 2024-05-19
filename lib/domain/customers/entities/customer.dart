@@ -19,7 +19,7 @@ class Customer with _$Customer {
     required String notes,
     required DateTime dateAdded,
     required List<String> tags,
-    required LocationCoordinates locationCoordinates,
+    // required LocationCoordinates locationCoordinates,
   }) = _Customer;
   
     /// Creates a Customer from Json map
