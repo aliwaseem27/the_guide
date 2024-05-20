@@ -20,15 +20,18 @@ class FirebaseCustomerRepository implements ICustomerRepository {
   }
 
   @override
-  Future<List<Customer>> getAllCustomers() {
-    // TODO: implement getAllCustomers
-    throw UnimplementedError();
+  Future<List<Customer>> getAllCustomers() async {
+    QuerySnapshot querySnapshot = await _firestore.collection("customers").get();
+    return querySnapshot.docs.map((doc) => Customer.fromJson(doc.data() as Map<String, dynamic>)).toList();
   }
 
   @override
-  Future<Customer?> getCustomerById(String id) {
-    // TODO: implement getCustomerById
-    throw UnimplementedError();
+  Future<Customer?> getCustomerById(String id) async {
+    final doc = await _firestore.collection("customers").doc(id).get();
+    if (doc.exists) {
+      return Customer.fromJson(doc.data()!);
+    }
+    return null;
   }
 
   @override
@@ -37,8 +40,7 @@ class FirebaseCustomerRepository implements ICustomerRepository {
   }
 
   @override
-  Future<void> updateCustomerField(String id, String fieldName, value) {
-    // TODO: implement updateCustomerField
-    throw UnimplementedError();
+  Future<void> updateCustomerField(String id, String fieldName, value) async {
+    await _firestore.collection("customers").doc(id).update({fieldName: value});
   }
 }
