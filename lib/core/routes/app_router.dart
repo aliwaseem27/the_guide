@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 
+import '../../domain/customers/entities/customer.dart';
 import '../../presentation/auth/screens/sign_in/sign_in_screen.dart';
 import '../../presentation/auth/screens/sign_up/sign_up_screen.dart';
 import '../../presentation/calender/screens/calender_screen.dart';

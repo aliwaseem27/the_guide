@@ -28,9 +28,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     CustomerDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<CustomerDetailsRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const CustomerDetailsScreen(),
+        child: CustomerDetailsScreen(
+          key: args.key,
+          customer: args.customer,
+        ),
       );
     },
     CustomerListRoute.name: (routeData) {
@@ -118,16 +122,40 @@ class CalenderRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [CustomerDetailsScreen]
-class CustomerDetailsRoute extends PageRouteInfo<void> {
-  const CustomerDetailsRoute({List<PageRouteInfo>? children})
-      : super(
+class CustomerDetailsRoute extends PageRouteInfo<CustomerDetailsRouteArgs> {
+  CustomerDetailsRoute({
+    Key? key,
+    required Customer customer,
+    List<PageRouteInfo>? children,
+  }) : super(
           CustomerDetailsRoute.name,
+          args: CustomerDetailsRouteArgs(
+            key: key,
+            customer: customer,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'CustomerDetailsRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<CustomerDetailsRouteArgs> page =
+      PageInfo<CustomerDetailsRouteArgs>(name);
+}
+
+class CustomerDetailsRouteArgs {
+  const CustomerDetailsRouteArgs({
+    this.key,
+    required this.customer,
+  });
+
+  final Key? key;
+
+  final Customer customer;
+
+  @override
+  String toString() {
+    return 'CustomerDetailsRouteArgs{key: $key, customer: $customer}';
+  }
 }
 
 /// generated route for

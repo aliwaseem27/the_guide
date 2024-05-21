@@ -34,7 +34,7 @@ class CustomerListWidget extends StatelessWidget {
                           ),
                         ),
                       ),
-                      onTap: () => context.router.push(const CustomerDetailsRoute()),
+                      onTap: () => context.router.push(CustomerDetailsRoute(customer: loadedState.customers[index])),
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) {

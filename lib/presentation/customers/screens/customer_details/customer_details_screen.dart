@@ -1,9 +1,13 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:the_guide/domain/customers/entities/customer.dart';
 
 @RoutePage()
 class CustomerDetailsScreen extends StatelessWidget {
-  const CustomerDetailsScreen({super.key});
+  const CustomerDetailsScreen({super.key, required this.customer});
+
+  final Customer customer;
 
   @override
   Widget build(BuildContext context) {
@@ -19,21 +23,21 @@ class CustomerDetailsScreen extends StatelessWidget {
               CustomerInfoTile(
                 leadingIcon: Icons.person,
                 overlineText: "Customer Name",
-                mainText: "Ali Waseem Mohammed",
+                mainText: customer.name,
                 onTap: () {},
               ),
               SizedBox(height: 8),
               CustomerInfoTile(
                 leadingIcon: Icons.phone,
                 overlineText: "Phone Number",
-                mainText: "078 123 4567",
+                mainText: customer.phoneNumber,
                 onTap: () {},
               ),
               SizedBox(height: 8),
               CustomerInfoTile(
                 leadingIcon: Icons.email,
                 overlineText: "Email Address",
-                mainText: "ali.waseem27@gmail.com",
+                mainText: customer.email,
                 onTap: () {},
               ),
               SizedBox(height: 8),
@@ -47,21 +51,21 @@ class CustomerDetailsScreen extends StatelessWidget {
               CustomerInfoTile(
                 leadingIcon: Icons.date_range,
                 overlineText: "Date Added",
-                mainText: "24/02/2024",
+                mainText: DateFormat("yyyy-MM-dd").format(customer.dateAdded),
                 onTap: () {},
               ),
               SizedBox(height: 8),
               CustomerInfoTile(
                 leadingIcon: Icons.tag,
                 overlineText: "Tags",
-                mainText: "Supermarket, Medium Importance",
+                mainText: customer.tags.join(", "),
                 onTap: () {},
               ),
               SizedBox(height: 8),
               CustomerInfoTile(
                 leadingIcon: Icons.info,
                 overlineText: "Additional Info",
-                mainText: "This is multi line text info about notes can be added about the customer",
+                mainText: customer.notes,
                 onTap: () {},
               ),
             ],
