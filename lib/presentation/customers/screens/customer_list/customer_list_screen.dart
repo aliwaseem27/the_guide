@@ -16,7 +16,7 @@ class CustomerListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<CustomerWatcherBloc>(
-      create: (context) => getIt<CustomerWatcherBloc>(),
+      create: (context) => getIt<CustomerWatcherBloc>()..add(const CustomerWatcherEvent.watchAllStarted()),
       child: Padding(
         padding: const EdgeInsets.only(
             left: AppSizes.defaultSpace, right: AppSizes.defaultSpace, top: AppSizes.appBarHeight),
@@ -39,4 +39,3 @@ class CustomerListScreen extends StatelessWidget {
     );
   }
 }
-
