@@ -11,5 +11,5 @@ abstract class ICustomerRepository {
 
   Future<Customer?> getCustomerById(String id);
 
-  Future<List<Customer>> getAllCustomers();
+  Stream<List<Customer>> getAllCustomers();
 }

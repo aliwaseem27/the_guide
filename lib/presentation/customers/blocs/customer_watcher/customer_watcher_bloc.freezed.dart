@@ -19,32 +19,38 @@ mixin _$CustomerWatcherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchAllStarted,
+    required TResult Function(List<Customer> customers) customersReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? watchAllStarted,
+    TResult? Function(List<Customer> customers)? customersReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchAllStarted,
+    TResult Function(List<Customer> customers)? customersReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchAllStarted value) watchAllStarted,
+    required TResult Function(_CustomersReceived value) customersReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WatchAllStarted value)? watchAllStarted,
+    TResult? Function(_CustomersReceived value)? customersReceived,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchAllStarted value)? watchAllStarted,
+    TResult Function(_CustomersReceived value)? customersReceived,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -108,6 +114,7 @@ class _$WatchAllStartedImpl implements _WatchAllStarted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchAllStarted,
+    required TResult Function(List<Customer> customers) customersReceived,
   }) {
     return watchAllStarted();
   }
@@ -116,6 +123,7 @@ class _$WatchAllStartedImpl implements _WatchAllStarted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? watchAllStarted,
+    TResult? Function(List<Customer> customers)? customersReceived,
   }) {
     return watchAllStarted?.call();
   }
@@ -124,6 +132,7 @@ class _$WatchAllStartedImpl implements _WatchAllStarted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchAllStarted,
+    TResult Function(List<Customer> customers)? customersReceived,
     required TResult orElse(),
   }) {
     if (watchAllStarted != null) {
@@ -136,6 +145,7 @@ class _$WatchAllStartedImpl implements _WatchAllStarted {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchAllStarted value) watchAllStarted,
+    required TResult Function(_CustomersReceived value) customersReceived,
   }) {
     return watchAllStarted(this);
   }
@@ -144,6 +154,7 @@ class _$WatchAllStartedImpl implements _WatchAllStarted {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_WatchAllStarted value)? watchAllStarted,
+    TResult? Function(_CustomersReceived value)? customersReceived,
   }) {
     return watchAllStarted?.call(this);
   }
@@ -152,6 +163,7 @@ class _$WatchAllStartedImpl implements _WatchAllStarted {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchAllStarted value)? watchAllStarted,
+    TResult Function(_CustomersReceived value)? customersReceived,
     required TResult orElse(),
   }) {
     if (watchAllStarted != null) {
@@ -163,6 +175,149 @@ class _$WatchAllStartedImpl implements _WatchAllStarted {
 
 abstract class _WatchAllStarted implements CustomerWatcherEvent {
   const factory _WatchAllStarted() = _$WatchAllStartedImpl;
+}
+
+/// @nodoc
+abstract class _$$CustomersReceivedImplCopyWith<$Res> {
+  factory _$$CustomersReceivedImplCopyWith(_$CustomersReceivedImpl value,
+          $Res Function(_$CustomersReceivedImpl) then) =
+      __$$CustomersReceivedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Customer> customers});
+}
+
+/// @nodoc
+class __$$CustomersReceivedImplCopyWithImpl<$Res>
+    extends _$CustomerWatcherEventCopyWithImpl<$Res, _$CustomersReceivedImpl>
+    implements _$$CustomersReceivedImplCopyWith<$Res> {
+  __$$CustomersReceivedImplCopyWithImpl(_$CustomersReceivedImpl _value,
+      $Res Function(_$CustomersReceivedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? customers = null,
+  }) {
+    return _then(_$CustomersReceivedImpl(
+      null == customers
+          ? _value._customers
+          : customers // ignore: cast_nullable_to_non_nullable
+              as List<Customer>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CustomersReceivedImpl implements _CustomersReceived {
+  const _$CustomersReceivedImpl(final List<Customer> customers)
+      : _customers = customers;
+
+  final List<Customer> _customers;
+  @override
+  List<Customer> get customers {
+    if (_customers is EqualUnmodifiableListView) return _customers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_customers);
+  }
+
+  @override
+  String toString() {
+    return 'CustomerWatcherEvent.customersReceived(customers: $customers)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CustomersReceivedImpl &&
+            const DeepCollectionEquality()
+                .equals(other._customers, _customers));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_customers));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CustomersReceivedImplCopyWith<_$CustomersReceivedImpl> get copyWith =>
+      __$$CustomersReceivedImplCopyWithImpl<_$CustomersReceivedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchAllStarted,
+    required TResult Function(List<Customer> customers) customersReceived,
+  }) {
+    return customersReceived(customers);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? watchAllStarted,
+    TResult? Function(List<Customer> customers)? customersReceived,
+  }) {
+    return customersReceived?.call(customers);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchAllStarted,
+    TResult Function(List<Customer> customers)? customersReceived,
+    required TResult orElse(),
+  }) {
+    if (customersReceived != null) {
+      return customersReceived(customers);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchAllStarted value) watchAllStarted,
+    required TResult Function(_CustomersReceived value) customersReceived,
+  }) {
+    return customersReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_WatchAllStarted value)? watchAllStarted,
+    TResult? Function(_CustomersReceived value)? customersReceived,
+  }) {
+    return customersReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchAllStarted value)? watchAllStarted,
+    TResult Function(_CustomersReceived value)? customersReceived,
+    required TResult orElse(),
+  }) {
+    if (customersReceived != null) {
+      return customersReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CustomersReceived implements CustomerWatcherEvent {
+  const factory _CustomersReceived(final List<Customer> customers) =
+      _$CustomersReceivedImpl;
+
+  List<Customer> get customers;
+  @JsonKey(ignore: true)
+  _$$CustomersReceivedImplCopyWith<_$CustomersReceivedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

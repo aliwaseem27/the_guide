@@ -20,9 +20,11 @@ class FirebaseCustomerRepository implements ICustomerRepository {
   }
 
   @override
-  Future<List<Customer>> getAllCustomers() async {
-    QuerySnapshot querySnapshot = await _firestore.collection("customers").get();
-    return querySnapshot.docs.map((doc) => Customer.fromJson(doc.data() as Map<String, dynamic>)).toList();
+  Stream<List<Customer>> getAllCustomers() async* {
+    final customerDocuments = _firestore.collection("customers");
+    yield* customerDocuments
+        .snapshots()
+        .map((snapshot) => snapshot.docs.map((doc) => Customer.fromJson(doc.data())).toList());
   }
 
   @override
@@ -44,3 +46,6 @@ class FirebaseCustomerRepository implements ICustomerRepository {
     await _firestore.collection("customers").doc(id).update({fieldName: value});
   }
 }
+
+// QuerySnapshot querySnapshot = await _firestore.collection("customers").get();
+// return querySnapshot.docs.map((doc) => Customer.fromJson(doc.data() as Map<String, dynamic>)).toList();
