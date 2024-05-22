@@ -7,6 +7,7 @@ import 'package:the_guide/injection.dart';
 import 'package:the_guide/presentation/customers/blocs/customer_watcher/customer_watcher_bloc.dart';
 
 import '../../../../core/routes/app_router.dart';
+import '../../blocs/customer_actor/customer_actor_bloc.dart';
 import 'widgets/customer_list_widget.dart';
 
 @RoutePage()
@@ -15,7 +16,7 @@ class CustomerListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<CustomerWatcherBloc>(
+    return BlocProvider(
       create: (context) => getIt<CustomerWatcherBloc>()..add(const CustomerWatcherEvent.watchAllStarted()),
       child: Padding(
         padding: const EdgeInsets.only(

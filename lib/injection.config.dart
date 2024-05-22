@@ -16,7 +16,7 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'package:the_guide/data/auth/repositories/firebase_auth_facade.dart'
     as _i9;
 import 'package:the_guide/data/auth/repositories/firebase_injectable_module.dart'
-    as _i15;
+    as _i16;
 import 'package:the_guide/data/customers/repositories/firebase_customer_repository.dart'
     as _i7;
 import 'package:the_guide/domain/auth/repositories/i_auth_facade.dart' as _i8;
@@ -30,6 +30,8 @@ import 'package:the_guide/presentation/auth/blocs/sign_up/sign_up_bloc.dart'
     as _i12;
 import 'package:the_guide/presentation/customers/blocs/add_customer/add_customer_bloc.dart'
     as _i13;
+import 'package:the_guide/presentation/customers/blocs/customer_actor/customer_actor_bloc.dart'
+    as _i15;
 import 'package:the_guide/presentation/customers/blocs/customer_watcher/customer_watcher_bloc.dart'
     as _i14;
 
@@ -65,8 +67,10 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i13.AddCustomerBloc(gh<_i6.ICustomerRepository>()));
     gh.factory<_i14.CustomerWatcherBloc>(
         () => _i14.CustomerWatcherBloc(gh<_i6.ICustomerRepository>()));
+    gh.factory<_i15.CustomerActorBloc>(
+        () => _i15.CustomerActorBloc(gh<_i6.ICustomerRepository>()));
     return this;
   }
 }
 
-class _$FirebaseInjectableModule extends _i15.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i16.FirebaseInjectableModule {}

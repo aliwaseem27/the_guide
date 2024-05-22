@@ -12,6 +12,10 @@ class FirestoreFailure extends Failure {
   const FirestoreFailure({required String message}) : super(message);
 }
 
+class CustomerFailure extends Failure {
+  const CustomerFailure({required String message}) : super(message);
+}
+
 class ServerFailure extends Failure {
   const ServerFailure({required String message}) : super(message);
 }
