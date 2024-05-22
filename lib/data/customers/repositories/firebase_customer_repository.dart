@@ -46,6 +46,3 @@ class FirebaseCustomerRepository implements ICustomerRepository {
     await _firestore.collection("customers").doc(id).update({fieldName: value});
   }
 }
-
-// QuerySnapshot querySnapshot = await _firestore.collection("customers").get();
-// return querySnapshot.docs.map((doc) => Customer.fromJson(doc.data() as Map<String, dynamic>)).toList();
