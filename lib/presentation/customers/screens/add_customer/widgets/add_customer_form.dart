@@ -53,6 +53,17 @@ class AddCustomerForm extends StatelessWidget {
                 // controller: ,
                 // validator: ,
                 decoration: const InputDecoration(
+                  labelText: 'Location',
+                  prefixIcon: Icon(Icons.location),
+                ),
+                onChanged: (value) =>
+                    context.read<AddCustomerBloc>().add(AddCustomerEvent.emailChanged(value)),
+              ),
+              const SizedBox(height: AppSizes.spaceBtwInputFields),
+              TextFormField(
+                // controller: ,
+                // validator: ,
+                decoration: const InputDecoration(
                   labelText: 'Additional Notes',
                   prefixIcon: Icon(Icons.edit_note_sharp),
                 ),
