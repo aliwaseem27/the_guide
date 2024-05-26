@@ -6,10 +6,9 @@ import 'package:the_guide/presentation/map/screens/widgets/map_widget.dart';
 class MapScreen extends StatelessWidget {
   const MapScreen({super.key});
 
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: LocationScreen(),
-    );
+    return LocationScreen();
   }
 }

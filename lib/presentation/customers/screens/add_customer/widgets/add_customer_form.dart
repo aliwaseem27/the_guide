@@ -23,8 +23,7 @@ class AddCustomerForm extends StatelessWidget {
                   labelText: 'Customer Name',
                   prefixIcon: Icon(Icons.person),
                 ),
-                onChanged: (value) =>
-                    context.read<AddCustomerBloc>().add(AddCustomerEvent.nameChanged(value)),
+                onChanged: (value) => context.read<AddCustomerBloc>().add(AddCustomerEvent.nameChanged(value)),
               ),
               const SizedBox(height: AppSizes.spaceBtwInputFields),
               TextFormField(
@@ -34,8 +33,7 @@ class AddCustomerForm extends StatelessWidget {
                   labelText: 'Phone Number',
                   prefixIcon: Icon(Icons.phone),
                 ),
-                onChanged: (value) =>
-                    context.read<AddCustomerBloc>().add(AddCustomerEvent.phoneChanged(value)),
+                onChanged: (value) => context.read<AddCustomerBloc>().add(AddCustomerEvent.phoneChanged(value)),
               ),
               const SizedBox(height: AppSizes.spaceBtwInputFields),
               TextFormField(
@@ -45,8 +43,7 @@ class AddCustomerForm extends StatelessWidget {
                   labelText: 'Email Address',
                   prefixIcon: Icon(Icons.email),
                 ),
-                onChanged: (value) =>
-                    context.read<AddCustomerBloc>().add(AddCustomerEvent.emailChanged(value)),
+                onChanged: (value) => context.read<AddCustomerBloc>().add(AddCustomerEvent.emailChanged(value)),
               ),
               const SizedBox(height: AppSizes.spaceBtwInputFields),
               TextFormField(
@@ -54,10 +51,10 @@ class AddCustomerForm extends StatelessWidget {
                 // validator: ,
                 decoration: const InputDecoration(
                   labelText: 'Location',
-                  prefixIcon: Icon(Icons.location),
+                  prefixIcon: Icon(Icons.location_on),
                 ),
-                onChanged: (value) =>
-                    context.read<AddCustomerBloc>().add(AddCustomerEvent.emailChanged(value)),
+                //   onChanged: (value) =>
+                //       context.read<AddCustomerBloc>().add(AddCustomerEvent.emailChanged(value)),
               ),
               const SizedBox(height: AppSizes.spaceBtwInputFields),
               TextFormField(
@@ -67,8 +64,7 @@ class AddCustomerForm extends StatelessWidget {
                   labelText: 'Additional Notes',
                   prefixIcon: Icon(Icons.edit_note_sharp),
                 ),
-                onChanged: (value) =>
-                    context.read<AddCustomerBloc>().add(AddCustomerEvent.notesChanged(value)),
+                onChanged: (value) => context.read<AddCustomerBloc>().add(AddCustomerEvent.notesChanged(value)),
               ),
               const SizedBox(height: AppSizes.spaceBtwInputFields),
               TextFormField(
@@ -78,8 +74,7 @@ class AddCustomerForm extends StatelessWidget {
                   labelText: 'Tags',
                   prefixIcon: Icon(Icons.tag),
                 ),
-                onChanged: (value) =>
-                    context.read<AddCustomerBloc>().add(AddCustomerEvent.tagsChanged(value)),
+                onChanged: (value) => context.read<AddCustomerBloc>().add(AddCustomerEvent.tagsChanged(value)),
               ),
               const SizedBox(height: AppSizes.spaceBtwSections),
             ],
