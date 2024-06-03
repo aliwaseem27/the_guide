@@ -64,13 +64,33 @@ class _LocationScreenState extends State<LocationScreen> {
 
     if (permission == LocationPermission.deniedForever) {
       // Permissions are denied forever, handle appropriately.
-      return Future.error(
-          'Location permissions are permanently denied, we cannot request permissions.');
+      return Future.error('Location permissions are permanently denied, we cannot request permissions.');
     }
 
     // When we reach here, permissions are granted and we can
     // continue accessing the position of the device.
     return await Geolocator.getCurrentPosition();
+  }
+
+  packData() {
+    _determinePosition().then((value) async {
+      print("My Position: ${value.latitude}, ${value.longitude}");
+      myMarkers.add(Marker(
+        markerId: const MarkerId("My Location"),
+        position: LatLng(value.latitude, value.longitude),
+        infoWindow: const InfoWindow(title: 'My Location'),
+        flat: true,
+      ));
+      setState(() {});
+      await mapController.animateCamera(
+        CameraUpdate.newCameraPosition(
+          CameraPosition(
+            target: LatLng(value.latitude, value.longitude),
+            zoom: 14.0,
+          ),
+        ),
+      );
+    });
   }
 
   @override
@@ -79,16 +99,7 @@ class _LocationScreenState extends State<LocationScreen> {
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.location_searching),
-        onPressed: ()  {
-          mapController.animateCamera(
-            CameraUpdate.newCameraPosition(
-              CameraPosition(
-                target: _center,
-                zoom: 14.0,
-              ),
-            ),
-          );
-        },
+        onPressed: packData,
       ),
       body: GoogleMap(
         onMapCreated: _onMapCreated,
